@@ -33,4 +33,23 @@ public class BubbleSort {
          System.out.print(i+" ");
       }
    }
+
+   void sortRecursive(int []arr,int i){
+
+      int n = arr.length;
+      if(i==n-1) return;
+      int flag = 0;
+      for(int j=0;j<n-i-1;j++){
+         if(arr[j]>arr[j+1]){
+            swap(arr, j, j+1);
+            flag=1;
+         }
+      }
+      if(flag == 0) {
+         System.out.println("No more swap done so stoped at : "+i);
+         return;
+      };
+      sortRecursive(arr,i+1);
+
+   }
 }

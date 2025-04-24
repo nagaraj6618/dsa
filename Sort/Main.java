@@ -15,25 +15,29 @@ public class Main{
       // obj.printArray(arr2);
 
 
-      //Bubble Sort
+      // Bubble Sort
       // BubbleSort bobj = new BubbleSort();
 
       // bobj.sort(arr2);
       // bobj.printArray(arr2);
       // bobj.sort(arr3);
       // bobj.printArray(arr3);
+      // bobj.sortRecursive(arr2, 0);
+      // bobj.printArray(arr2);
 
       //Insertion Sort
       
       // InsertionSort iobj = new InsertionSort();
       // iobj.sort(arr2);
+
+      // iobj.sortRecursive(arr2, 0);
       // iobj.printArray(arr2);
    
       //Merge Sort
-      MergeSort mobj = new MergeSort();
+      // MergeSort mobj = new MergeSort();
 
-      mobj.mergeSort(arr2,0,arr2.length-1);
-      mobj.printArray(arr2);
+      // mobj.mergeSort(arr2,0,arr2.length-1);
+      // mobj.printArray(arr2);
       
    }
 }
