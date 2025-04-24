@@ -25,11 +25,15 @@ public class Main{
 
       //Insertion Sort
       
-      InsertionSort iobj = new InsertionSort();
-      iobj.sort(arr2);
-      iobj.printArray(arr2);
-      // obj.pattern();
+      // InsertionSort iobj = new InsertionSort();
+      // iobj.sort(arr2);
+      // iobj.printArray(arr2);
+   
+      //Merge Sort
+      MergeSort mobj = new MergeSort();
 
+      mobj.mergeSort(arr2,0,arr2.length-1);
+      mobj.printArray(arr2);
       
    }
 }
