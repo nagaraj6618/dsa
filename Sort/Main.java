@@ -38,6 +38,11 @@ public class Main{
 
       // mobj.mergeSort(arr2,0,arr2.length-1);
       // mobj.printArray(arr2);
+
+      //Quick Sort
+      QuickSort qobj = new QuickSort();
+      qobj.quickSort(arr2,0,arr2.length-1);
+      qobj.printArray(arr2);
       
    }
 }
