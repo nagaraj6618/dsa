@@ -97,25 +97,50 @@ class Sort{
       
    }
 
-   void QuickSort(int []arr,int low,int high){
+   // void QuickSort(int []arr,int low,int high){
+   //    if(low<high){
+   //       int pIndex = partition(arr,low,high); //Will return the correct index of pivot and put the pivot in the correct place.
+   //       QuickSort(arr,low,pIndex-1); //Now pivot is in correct position so that no need to go upto pivot.
+   //       QuickSort(arr,pIndex+1,high);
+   //    }
+   // }
+   // int partition(int []arr,int low,int high){
+   //    int i = low;
+   //    int j = high;
+   //    int pivot = arr[low];
+
+   //    while(i<j){
+   //       while(arr[i]<=pivot && i<=high){
+   //          i++;
+   //       }
+   //       while(pivot<arr[j] && j>=low) j--;
+
+   //       if(i<j) swap(arr,i,j);
+   //    }
+   //    swap(arr,low,j);
+   //    return j;
+   // }
+
+   void quickSort(int []arr,int low,int high){
+
       if(low<high){
-         int pIndex = partition(arr,low,high); //Will return the correct index of pivot and put the pivot in the correct place.
-         QuickSort(arr,low,pIndex-1); //Now pivot is in correct position so that no need to go upto pivot.
-         QuickSort(arr,pIndex+1,high);
+         int pIndex = partition(arr,low,high);
+         quickSort(arr,low,pIndex-1);
+         quickSort(arr, pIndex+1, high);
       }
    }
-   int partition(int []arr,int low,int high){
+   int partition(int[]arr,int low,int high){
+      int pivot = arr[low];
       int i = low;
       int j = high;
-      int pivot = arr[low];
-
       while(i<j){
-         while(arr[i]<=pivot && i<=high){
-            i++;
-         }
-         while(pivot<arr[j] && j>=low) j--;
 
-         if(i<j) swap(arr,i,j);
+         while(i<=high && arr[i] <= pivot) i++;
+         while(j>=low && arr[j]>pivot) j--;
+
+         if(i<j){
+            swap(arr,i,j);
+         }
       }
       swap(arr,low,j);
       return j;
@@ -132,7 +157,8 @@ public class Main{
       // obj.BubbleSort(arr);
       // obj.insertionSort(arr);
       // obj.mergeSort(arr, 0, arr.length-1);
-      obj.QuickSort(arr, 0, arr.length-1);
+      // obj.QuickSort(arr, 0, arr.length-1);
+      obj.quickSort(arr, 0, arr.length-1);
       obj.printArray(arr);
    }
 }
