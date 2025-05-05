@@ -29,16 +29,21 @@ public class Main{
 
 
       //Union of two sorted Array;
-      int nums1[] = {1,1,2,4,5,6,7,7,9,10,11};
-      int nums2[] = {1,1,2,2,3,5,5,6,7,20};
+      // int nums1[] = {1,1,2,4,5,6,7,7,9,10,11};
+      // int nums2[] = {1,1,2,2,3,5,5,6,7,20};
 
-      UnionArray uobj = new UnionArray();
-      uobj.unionTwoArray(nums1,nums2);
-      System.out.println("Intersection of Two Arrays");
-      for(int a : uobj.intersectionTwoArray(nums1, nums2)){
-         System.out.print(a+" ");
-      }
-      System.out.println("");
+      // UnionArray uobj = new UnionArray();
+      // uobj.unionTwoArray(nums1,nums2);
+      // System.out.println("Intersection of Two Arrays");
+      // for(int a : uobj.intersectionTwoArray(nums1, nums2)){
+      //    System.out.print(a+" ");
+      // }
+      // System.out.println("");
+
+
+      int nums1[] = {1,1,1,1,-1,2,3,3,1,1,1,2,3};
+      SubArray sobj = new SubArray();
+      System.out.println("The Longest SubArray is : "+sobj.positiveLongestSubArray(nums1, 5));
 
    }
 }
