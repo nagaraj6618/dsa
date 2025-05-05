@@ -2,7 +2,10 @@ import java.util.*;
 
 class SubArray{
 
-   public int positiveLongestSubArray(int nums[],int k){
+   public int positiveAndNegativeLongestSubArray(int nums[],int k){
+
+      //TC -> O(n)
+      //SC -> O(n)
       int maxLen = 0;
       int sum = 0;
       Map <Integer,Integer> prefixSumMap = new HashMap<>();
@@ -24,6 +27,10 @@ class SubArray{
          //3. Add to the map.
 
          //If use condition it use for both positive and negative.If not u can only use for positive
+
+         //For positive and negative it is the best solution.
+
+         //If only positive ,it is not Optimal solution.
          if(!prefixSumMap.containsKey(sum)){
             prefixSumMap.put(sum,i);
          }

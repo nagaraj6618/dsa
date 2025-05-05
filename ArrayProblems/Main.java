@@ -43,7 +43,7 @@ public class Main{
 
       int nums1[] = {1,1,1,1,-1,2,3,3,1,1,1,2,3};
       SubArray sobj = new SubArray();
-      System.out.println("The Longest SubArray is : "+sobj.positiveLongestSubArray(nums1, 5));
+      System.out.println("The Longest SubArray is : "+sobj.positiveAndNegativeLongestSubArray(nums1, 5));
 
    }
 }
