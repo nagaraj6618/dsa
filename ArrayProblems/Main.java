@@ -41,12 +41,19 @@ public class Main{
       // System.out.println("");
 
 
-      int nums1[] = {1,1,1,1,-1,2,3,3,1,1,1,2,3};
-      int nums2[] = {1,1,1,1,1,1,1,7,4,3};
-      SubArray sobj = new SubArray();
-      System.out.println("The Longest SubArray is : "+sobj.positiveAndNegativeLongestSubArray(nums1, 5));
+      // int nums1[] = {1,1,1,1,-1,2,3,3,1,1,1,2,3};
+      // int nums2[] = {1,1,1,1,1,1,1,7,4,3};
+      // SubArray sobj = new SubArray();
+      // System.out.println("The Longest SubArray is : "+sobj.positiveAndNegativeLongestSubArray(nums1, 5));
 
-      System.out.println("The Longest positive subArray is : "+sobj.positiveLongestSubArray(nums2, 7));
+      // System.out.println("The Longest positive subArray is : "+sobj.positiveLongestSubArray(nums2, 7));
+
+
+      //Two Sum
+      int nums2[] = {2,4,6,5,8,11};
+      TwoSum tobj = new TwoSum();
+      // tobj.twoSumOptimalMethod(nums2, 14);
+      tobj.twoSumUsingHashMap(nums2, 13);
 
    }
 }
