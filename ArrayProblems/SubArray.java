@@ -40,4 +40,23 @@ class SubArray{
 
       return maxLen;
    }
+   public int positiveLongestSubArray(int nums[],int k){
+      int n = nums.length;
+      int i=0,j=0,maxLen=0,sum=0;
+
+      while(i<n && j<n){
+         sum += nums[j];
+
+         if(sum == k){
+            int len = j-i+1;
+            maxLen = maxLen>len?maxLen:len;
+         }
+         while(i<j && sum>k){
+            sum -= nums[i];
+            i++;
+         }
+         j++;
+      }
+      return maxLen;
+   }
 }
