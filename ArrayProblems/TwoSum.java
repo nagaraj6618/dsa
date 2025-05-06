@@ -3,6 +3,10 @@ public class TwoSum {
    public int [] twoSumOptimalMethod(int nums[] , int target){
       //Using two pointer
       //Sort the given array.
+
+      //TC -> O(nlogn) + O(n) -> Sorting + two pointer approach => O(nlogn)
+      //SC -> O(1)
+       
       Arrays.sort(nums);
       int i=0,j=nums.length-1;
 
@@ -25,6 +29,8 @@ public class TwoSum {
 
    }
    public int [] twoSumUsingHashMap(int nums[],int target){
+      //TC -> Very worst case for unorderdmap -> O(n^2), if ordered map O(nlogn);
+      //SC -> O(n)
       Map<Integer,Integer> twoSumMap = new HashMap<>();
       int n = nums.length;
       for(int i=0;i<n;i++){
