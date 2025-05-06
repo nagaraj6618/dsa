@@ -50,10 +50,15 @@ public class Main{
 
 
       //Two Sum
-      int nums2[] = {2,4,6,5,8,11};
-      TwoSum tobj = new TwoSum();
+      // int nums2[] = {2,4,6,5,8,11};
+      // TwoSum tobj = new TwoSum();
       // tobj.twoSumOptimalMethod(nums2, 14);
-      tobj.twoSumUsingHashMap(nums2, 13);
+      // tobj.twoSumUsingHashMap(nums2, 13);
+
+      //Sort an array 0's,1's and 2's
+      int nums3[] = {1,0,0,2,1,2,2};
+      SortArray sortObj = new SortArray();
+      sortObj.sortArray(nums3);
 
    }
 }
