@@ -2,10 +2,10 @@ public class Main{
    public static void main(String []args){
 
       // Finding the second largest and smallest Element in the array;
-      // int []arr = {-23,1,22,32,23};
-      // SecondLargeAndSmallElement obj = new SecondLargeAndSmallElement();
-      // System.out.println("The Second Largest Element in tha array is : "+obj.secondLargestElement(arr));
-      // System.out.println("The Second Smallest Element in the array is : "+obj.secondSmallestElement(arr));
+      int []arr = {-23,1,22,22,22};
+      SecondLargeAndSmallElement obj = new SecondLargeAndSmallElement();
+      System.out.println("The Second Largest Element in tha array is : "+obj.secondLargestElement(arr));
+      System.out.println("The Second Smallest Element in the array is : "+obj.secondSmallestElement(arr));
 
 
       //Check the array is sorted or not;
@@ -56,9 +56,9 @@ public class Main{
       // tobj.twoSumUsingHashMap(nums2, 13);
 
       //Sort an array 0's,1's and 2's
-      int nums3[] = {1,0,0,2,1,2,2};
-      SortArray sortObj = new SortArray();
-      sortObj.sortArray(nums3);
+      // int nums3[] = {1,0,0,2,1,2,2};
+      // SortArray sortObj = new SortArray();
+      // sortObj.sortArray(nums3);
 
    }
 }
