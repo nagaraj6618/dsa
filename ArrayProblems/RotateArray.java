@@ -74,4 +74,14 @@ public class RotateArray {
       arr[i] = arr[j];
       arr[j] = temp;
    }
+
+   void rightRotateArray(int []arr,int d){
+
+      int n = arr.length;
+      if(d==0) {printArray(arr); return;}
+      reverseArray(arr, 0, n-d-1);
+      reverseArray(arr, n-d, n-1);
+      reverseArray(arr, 0, n-1);
+      printArray(arr);
+   }
 }

@@ -2,16 +2,16 @@ public class Main{
    public static void main(String []args){
 
       // Finding the second largest and smallest Element in the array;
-      int []arr = {-23,1,22,22,22};
-      SecondLargeAndSmallElement obj = new SecondLargeAndSmallElement();
-      System.out.println("The Second Largest Element in tha array is : "+obj.secondLargestElement(arr));
-      System.out.println("The Second Smallest Element in the array is : "+obj.secondSmallestElement(arr));
+      // int []arr = {-23,1,22,22,22};
+      // SecondLargeAndSmallElement obj = new SecondLargeAndSmallElement();
+      // System.out.println("The Second Largest Element in tha array is : "+obj.secondLargestElement(arr));
+      // System.out.println("The Second Smallest Element in the array is : "+obj.secondSmallestElement(arr));
 
 
       //Check the array is sorted or not;
 
       // int []arr1 = {3,4,5,1,2};
-      // int []arr2 
+    
       // CheckArraySortedOrNot check = new CheckArraySortedOrNot();
       
       // System.out.println("Is the array is sorted and rotated ? : "+check.checkArraySortedAndRotatedOptimized(arr1));
@@ -21,10 +21,10 @@ public class Main{
       // System.out.println("Is the array is sorted ? : "+check.checks(arr1));
 
 
-      //Rotate the Array;
-      // int arr2[] = {1,2,3};
-      // RotateArray rotate = new RotateArray();
-      // rotate.rotateMethod3(arr2, 0);
+      // Rotate the Array;
+      int arr2[] = {8,18,7,6,5};
+      RotateArray rotate = new RotateArray();
+      rotate.rightRotateArray(arr2, 2);
       // rotate.printArray(arr2);
 
 
