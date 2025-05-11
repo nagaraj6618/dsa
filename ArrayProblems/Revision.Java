@@ -75,15 +75,78 @@ public class Revision{
       }
       System.out.println("");
    }
+
+   public int findingMissingNumberArray(int nums[]){
+
+      int n = nums.length;
+      int sum = 0;
+      int totSum = (n*(n+1))/2;
+
+      System.out.println(totSum);
+      for(int i=0;i<n;i++){
+         sum+=nums[i];
+      }
+      return totSum - sum;
+   }
+
+
+   public int positiveLongestSubArraySum(int nums[],int k){
+      //It is only for positive number from 0 to +infinity
+      int maxLen = 0,l=0,r=0,n=nums.length;
+      int sum = 0;
+
+      while(l<n && r<n){
+         sum += nums[r];
+         while(l<=r && sum>k){
+            sum -= nums[l];
+            l++;
+         }
+         if(sum == k){
+            int len = r-l+1;
+            maxLen = Math.max(maxLen,len);
+         }
+         r++;
+      }
+      return maxLen;
+   }
+
+   public int longestSubArraySum(int nums[],int k){
+      //It will work for both positive and negative numbers;
+
+      Map<Integer,Integer> temp = new HashMap<>();
+      int n = nums.length;
+      int sum = 0;
+      int maxLen = 0;
+      for(int i=0;i<n;i++){
+         sum += nums[i];
+         if(temp.containsKey(sum-k)){
+            int len = i-temp.get(sum-k);
+            maxLen = Math.max(maxLen , len);
+         }
+         else{
+            temp.put(sum,i);
+         }
+      }
+      return maxLen;
+   }
    public static void main(String []args){
 
       Revision obj = new Revision();
-      int arr1[] = {1,2,3,4,4};
-      int arr2[] = {1,3,4,5,6};
+      // int arr1[] = {1,2,3,4,4};
+      // int arr2[] = {1,3,4,5,6};
 
-      obj.unionTwoArray(arr1,arr2);
+      // obj.unionTwoArray(arr1,arr2);
 
-      obj.intersectionTwoArray(arr1,arr2);
+      // obj.intersectionTwoArray(arr1,arr2);
+
+      // int nums1 []= {0,1,4,2,3};
+      // System.out.println("The missing number is : "+obj.findingMissingNumberArray(nums1)); 
+
+      int nums2[] = {2,1,1,1,5,9,9,1,2,6,0,0,1};
+      int nums3[] = {1,9,-9,9,-2,2,1,3,-2,8};
+      int k = 10;
+      System.out.println("The Max length of subarray : "+obj.positiveLongestSubArraySum(nums2,k));
+      System.out.println("The Max length of subarray : "+obj.longestSubArraySum(nums3,k));
    }
 
 }
