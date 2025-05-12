@@ -119,15 +119,48 @@ public class Revision{
       int maxLen = 0;
       for(int i=0;i<n;i++){
          sum += nums[i];
+         if(sum == k){
+            int len = i+1;
+            maxLen = Math.max(maxLen , len);
+         }
          if(temp.containsKey(sum-k)){
             int len = i-temp.get(sum-k);
             maxLen = Math.max(maxLen , len);
          }
-         else{
+         if(!temp.containsKey(sum)){
             temp.put(sum,i);
          }
       }
       return maxLen;
+   }
+
+
+   public void maxSumSubArray(int nums[]){
+      int n = nums.length;
+      int maxSum = Integer.MIN_VALUE;
+      int sum = 0;
+      int start = 0;
+      int ansStart = 0;
+      int ansEnd = 0;
+      for(int i=0;i<n;i++){
+         // if(sum==0){
+         //    start = i;
+         // }
+         sum += nums[i];
+      
+         if(sum > maxSum) {
+            maxSum = sum;
+            ansStart = start;
+            ansEnd = i;
+         }
+         if(sum<0){
+            sum = 0;
+            start = i+1;
+         }
+
+      }
+      System.out.println("From start index : "+ansStart+" and end index : "+ansEnd);
+      System.out.println("The Max Sum Subarray of given array is : "+maxSum);
    }
    public static void main(String []args){
 
@@ -142,11 +175,16 @@ public class Revision{
       // int nums1 []= {0,1,4,2,3};
       // System.out.println("The missing number is : "+obj.findingMissingNumberArray(nums1)); 
 
-      int nums2[] = {2,1,1,1,5,9,9,1,2,6,0,0,1};
-      int nums3[] = {1,9,-9,9,-2,2,1,3,-2,8};
-      int k = 10;
-      System.out.println("The Max length of subarray : "+obj.positiveLongestSubArraySum(nums2,k));
-      System.out.println("The Max length of subarray : "+obj.longestSubArraySum(nums3,k));
+      // int nums2[] = {2,1,1,1,5,9,9,1,2,6,0,0,1};
+      // int nums3[] = {1,9,-9,9,-2,2,1,3,-2,8};
+      // int k = 10;
+      // System.out.println("The Max length of subarray : "+obj.positiveLongestSubArraySum(nums2,k));
+      // System.out.println("The Max length of subarray : "+obj.longestSubArraySum(nums3,k));
+
+
+      int nums4[] = {-2,-4,-1,3,9,-1,5};
+      obj.maxSumSubArray(nums4);
+
    }
 
 }
