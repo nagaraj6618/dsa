@@ -156,10 +156,13 @@ public class Revision{
          if(sum<0){
             sum = 0;
             start = i+1;
+
          }
+
 
       }
       System.out.println("From start index : "+ansStart+" and end index : "+ansEnd);
+
       System.out.println("The Max Sum Subarray of given array is : "+maxSum);
    }
    public static void main(String []args){
@@ -182,8 +185,8 @@ public class Revision{
       // System.out.println("The Max length of subarray : "+obj.longestSubArraySum(nums3,k));
 
 
-      int nums4[] = {-2,-4,-1,3,9,-1,5};
-      obj.maxSumSubArray(nums4);
+      // int nums4[] = {-2,-4,-1,3,9,-1,5};
+      // obj.maxSumSubArray(nums4);
 
    }
 
