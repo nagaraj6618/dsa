@@ -19,6 +19,35 @@ public class Permutation{
          
       }
    }
+   public void recurPermutationMethod2(int index,int []nums,List<List<Integer>> ans){
+      int n = nums.length;
+      
+      if(index == n) {
+         List<Integer> ds = new ArrayList<>();
+         for(int a:nums){
+            ds.add(a);
+         }
+         ans.add(new ArrayList<>(ds));
+         // printArray(nums);
+      }
+
+      for(int i=index;i<n;i++){
+         swap(nums,i,index);
+         recurPermutationMethod2(index+1, nums, ans);
+         swap(nums,i,index);
+      }
+   }
+   public void swap(int[] nums,int i,int j){
+      int temp=nums[i];
+      nums[i] = nums[j];
+      nums[j] = temp;
+   }
+   public void printArray(int nums[]){
+      for(int i:nums){
+         System.out.print(i+" ");
+      }
+      System.out.println();
+   }
    public static void main(String[] args){
       Permutation obj = new Permutation();
 
@@ -27,7 +56,8 @@ public class Permutation{
       List<Integer> ds = new ArrayList<>();
       boolean[]freq = new boolean[nums.length];
 
-      obj.recurPermutation(nums, ans, ds, freq);
+      // obj.recurPermutation(nums, ans, ds, freq);
+      obj.recurPermutationMethod2(0, nums, ans);
       System.out.println("All Permutation : "+ans);
    }
 }
