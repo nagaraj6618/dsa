@@ -67,7 +67,7 @@ public class Main{
          if(sum == k){
             count = j-i+1;
          }
-         while(sum>k && i<n){
+         while(sum>k && i<=j){
             sum -= arr[i];
             i++;
          }
