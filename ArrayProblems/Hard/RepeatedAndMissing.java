@@ -23,9 +23,59 @@ public class RepeatedAndMissing{
 
 
    }
+   public void repeatedAndMissingElementXor(int nums[]){
+      int n = nums.length;
+      int xr = 0;
+
+      for(int i=0;i<n;i++){
+         xr ^= nums[i];
+         xr ^= (i+1);
+      }
+
+      int bitNo = 0;
+      while(true){
+         if((xr & (1 << bitNo)) != 0){
+            break;
+         }
+         bitNo++;
+      }
+      int one = 0;
+      int zero = 0;
+      for(int i=0;i<n;i++){
+         if((nums[i] &(1<<bitNo))!=0){
+            one ^= nums[i];
+         }
+         else{
+            zero ^= nums[i];
+         }
+      }
+      for(int i=1;i<=n;i++){
+         if(((i) &(1<<bitNo))!=0){
+            one ^= i;
+         }
+         else{
+            zero ^= i;
+         }
+      }
+      int cnt = 0;
+      for(int i=0;i<n;i++){
+         if(one == nums[i]) cnt++;
+      }
+      int rep = zero;
+      int miss = one;
+      if(cnt==2){
+         rep = one;
+         miss =zero;
+         
+      }
+      System.out.println("The repeated Element is  :"+rep);
+      System.out.println("The Missing Element is : "+miss);
+      return;
+   }
    public static void main(String []args){
       int nums[] = {4,3,6,2,1,1};
       RepeatedAndMissing obj = new RepeatedAndMissing();
       obj.repeatedAndMissingElement(nums);
+      obj.repeatedAndMissingElementXor(nums);
    }
 }
