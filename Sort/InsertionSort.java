@@ -7,6 +7,7 @@ public class InsertionSort {
       for(int i=1;i<n;i++){
          int j=i;
 
+         
          //If the arr is already sorted then the while loop will not execute.So it is O(n) Time complex
          while(j>0 && arr[j]<arr[j-1]){
             // if(arr[j]<arr[j-1]) {
