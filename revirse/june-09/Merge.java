@@ -1,5 +1,5 @@
 import java.util.*;
-class Merge{
+public class Merge{
    public void mergeSort(int nums[],int low,int high){
       if(low==high)return;
 
