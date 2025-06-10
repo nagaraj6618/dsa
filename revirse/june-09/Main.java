@@ -84,5 +84,21 @@ public class Main{
       int nums12[] = {3,5,10,6,7,8};
       int sequenceLength = pobj.longestConsecutiveSequence(nums12);
       System.out.println("Longest Consecutive Sequence in an Array : "+sequenceLength);
+
+      //SetMatrix Zero
+      int nums13[][] ={{1,1,1,1},{1,0,1,1},{1,1,0,1},{0,1,1,1}};
+      int nums14[][] ={{1,1,1,1},{1,0,1,1},{1,1,0,1},{0,1,1,1}};
+      pobj.setMatrixZeroM1(nums13);
+      pobj.setMatrixZeroM2(nums14);
+
+      //Rotate Matrix by 90 degree
+      int nums15[][] = {{1,2,3},{4,5,6},{7,8,9}};
+      pobj.rotateMatrix(nums15);
+
+      //Count subarray sum
+      int nums16[] = {3,1,2,4,1,1,6};
+      int countSubarraySum = pobj.countSubarraySum(nums16,6);
+      System.out.println("The count of subarray sum : "+countSubarraySum);
+
    }
 }
