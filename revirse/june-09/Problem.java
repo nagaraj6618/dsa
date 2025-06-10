@@ -136,4 +136,120 @@ public class Problem {
       
       return maxLen;
    }
+
+   //Permutation
+   public void recurPermutation(int nums[],int index,List<List<Integer>> ans){
+      int n = nums.length;
+      if(index == n){
+         List<Integer> temp = new ArrayList<>();
+         for(int a : nums){
+            temp.add(a);
+         }
+         ans.add(temp);
+      }
+
+      for(int i=index;i<n;i++){
+         swap(nums,index,i);
+         recurPermutation(nums,index+1,ans);
+         swap(nums,index,i);
+      }
+   }
+   public void recurPermutationMethod2(int nums[],List<List<Integer>> ans,List<Integer> ds,boolean[] freq){
+      int n = nums.length;
+      if(ds.size() == n){
+         ans.add(new ArrayList<>(ds));
+         return;
+      }
+      for(int i=0;i<n;i++){
+         if(!freq[i]){
+            freq[i] = true;
+            ds.add(nums[i]);
+            recurPermutationMethod2(nums,ans,ds,freq);
+            ds.remove(ds.size()-1);
+            freq[i] = false;
+         }
+      }
+   }
+   public void nextPermutation(int nums[]){
+      int n = nums.length;
+
+      int small=0;
+      int flag = 0;
+
+      for(int i=n-1;i>0;i--){
+         if(nums[i] > nums[i-1]){
+            small = i-1;
+            flag=1;
+            break;
+         }
+      }
+      if(flag==0){
+         reverseArray(nums,0,n-1);
+         return;
+      }
+      for(int i=n-1;i>small;i--){
+         if(nums[small] <nums[i]){
+            swap(nums,small,i);
+            break;
+         }
+      }
+      reverseArray(nums,small+1,n-1);
+   }
+   public void reverseArray(int nums[],int start,int end){
+      while(start<end){
+         swap(nums,start,end);
+         start++;
+         end--;
+      }
+   }
+
+   //Leaders in arrays
+   public List<Integer> leaders(int nums[]){
+      int n = nums.length;
+      int max = nums[n-1];
+      List<Integer> temp = new ArrayList<>();
+      temp.add(max);
+      for(int i=n-2;i>0;i--){
+         if(max <nums[i]){
+            temp.add(nums[i]);
+            max = nums[i];
+         }
+      }
+      reverseList(temp,0,temp.size()-1);
+      return temp;
+   }
+
+   //Reverse List;
+   public void reverseList(List<Integer> list,int start,int end){
+      while(start<end){
+         int temp = list.get(start);
+         list.set(start,list.get(end));
+         list.set(end,temp);
+         start++;
+         end--;
+      }
+   }
+   
+   //Longest Consecutive Sequence in an Array
+   public int longestConsecutiveSequence(int nums[]){
+      int n = nums.length;
+      int len = 0;
+      int maxLen = 0;
+      Set<Integer> set = new HashSet<>();
+      for(int i=0;i<n;i++){
+         set.add(nums[i]);
+      }
+
+      for(int num : set){
+         if(!set.contains(num-1)){
+            len = 1;
+            while(set.contains(num+1)){
+               num = num+1;
+               len++;
+            }
+            maxLen = Math.max(maxLen,len);
+         }
+      }
+      return maxLen;
+   }
 }

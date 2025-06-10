@@ -58,5 +58,31 @@ public class Main{
       System.out.println("The maximum sum with k : "+pobj.LongestSubArraySumKM1(nums8,10));
 
       System.out.println("The maximum sum with k : "+pobj.LongestSubArraySumKM2(nums7,10));
+
+      //Permutation 
+      int nums9[] = {1,2,3};
+      List<List<Integer>> ans = new ArrayList<>();
+      pobj.recurPermutation(nums9,0,ans);
+      System.out.println("The all posible permutation of given array : "+ans);
+      List<Integer> ds = new ArrayList<>();
+      ans = new ArrayList<>();
+      boolean freq[] = new boolean[nums9.length];
+      pobj.recurPermutationMethod2(nums9,ans,ds,freq);
+      System.out.println("The all posible permutation of given array : "+ans);
+
+      //Next Permutation
+      int nums10 []= {3,2,1};
+      pobj.nextPermutation(nums10);
+      mobj.printArray(nums10);
+
+      //Leaders in Arrays
+      int nums11[] = {10,22,12,3,0,6,2};
+      List<Integer> leaderList = pobj.leaders(nums11);
+      mobj.printList(leaderList);
+
+      //Longest Consecutive Sequence in an Array
+      int nums12[] = {3,5,10,6,7,8};
+      int sequenceLength = pobj.longestConsecutiveSequence(nums12);
+      System.out.println("Longest Consecutive Sequence in an Array : "+sequenceLength);
    }
 }
