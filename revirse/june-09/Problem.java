@@ -401,4 +401,52 @@ public class Problem {
       }
       return cnt;
    }
+
+   //Pascal Triangle
+   
+   //Variation 1 row = 5 col = 3 to print the value of given place;
+   public int pascalVariation1(int row,int col){
+      int value = 1;
+      row = row-1;
+      col = col-1;
+      for(int i=0;i<col;i++){
+         value *= (row-i);
+         value /= (i+1);
+      }
+      System.out.println("The value of give place is : "+value);
+      return value;
+   }
+   
+   //Variation 2 to print all the elements in the row;
+   public List<Integer> pascalVariation2(int rowIndex) {
+      long value = 1;
+      List<Integer> list = new ArrayList<>();
+      list.add(1);
+
+      for (int i = 0; i < rowIndex; i++) {
+         value *= (long) (rowIndex - i);
+         value /= (long) (i + 1);
+         list.add((int) value);
+      }
+      return list;
+   }
+
+   // Variation to generate all values;
+   public List<List<Integer>> pascalVariation3(int numRows) {
+      List<List<Integer>> ans = new ArrayList<>();
+      List<Integer> list = new ArrayList<>();
+      for (int i = 0; i < numRows; i++) {
+         int value = 1;
+         list.add(value);
+
+         for (int j = 0; j < i; j++) {
+            value *= (i - j);
+            value /= (j + 1);
+            list.add(value);
+         }
+         ans.add(new ArrayList<>(list));
+         list.clear();
+      }
+      return ans;
+   }
 }

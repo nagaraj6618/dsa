@@ -100,5 +100,17 @@ public class Main{
       int countSubarraySum = pobj.countSubarraySum(nums16,6);
       System.out.println("The count of subarray sum : "+countSubarraySum);
 
+      //Pascal Triangle
+      //Variation 1
+      pobj.pascalVariation1(4,2);
+
+      //Variation 2 TO print the elements in the row
+      List<Integer> list = pobj.pascalVariation2(4);
+      System.out.println("The Pascal value in the given row : "+list);
+
+      //Variation 3 to generate all values.
+      List<List<Integer>> pascalAns = pobj.pascalVariation3(5);
+      System.out.println("All values of pascal triangle is : "+pascalAns);
+
    }
 }
