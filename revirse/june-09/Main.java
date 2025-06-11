@@ -1,4 +1,5 @@
 import java.util.*;
+
 public class Main{
    //To print 1d Array.
    public void printArray(int nums[]){
@@ -14,7 +15,7 @@ public class Main{
       }
       System.out.println();
    }
-   public static void main(String []args){
+   public static void main(String []s){
       Main mobj = new Main();
       
       //Merge Sort
@@ -112,5 +113,20 @@ public class Main{
       List<List<Integer>> pascalAns = pobj.pascalVariation3(5);
       System.out.println("All values of pascal triangle is : "+pascalAns);
 
+      //3-Sum;
+      int nums17[] = {-1,0,1,2,-1,-4};
+      System.out.println("The three sum of all pair : "+pobj.threeSum(nums17));
+      System.out.println("The three sum of all pair : "+pobj.threeSumM2(nums17));
+      System.out.println("The three sum of all pair : "+pobj.threeSumM3(nums17));
+
+      //4-Sum
+      int nums18[] = {1,0,-1,0,-2,2};
+      int nums19[] = {4,3,3,4,4,2,1,2,1,1};
+      System.out.println("The four sum of all pair : "+pobj.fourSumM1(nums18,0));
+      System.out.println("The four sum of all pair : "+pobj.fourSumM2(nums18,0));
+      System.out.println("The four sum of all pair : "+pobj.fourSumM3(nums18,0));
+      System.out.println("The four sum of all pair : "+pobj.fourSumM1(nums19,9));
+      System.out.println("The four sum of all pair : "+pobj.fourSumM2(nums19,9));
+      System.out.println("The four sum of all pair : "+pobj.fourSumM3(nums19,9));
    }
 }

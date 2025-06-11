@@ -449,4 +449,156 @@ public class Problem {
       }
       return ans;
    }
+   //3-Sum
+   public Set<List<Integer>> threeSum(int nums[]){
+      int n = nums.length;
+      Set<List<Integer>> ans = new HashSet<>();
+      for(int i=0;i<n;i++){
+         for(int j=i+1;j<n;j++){
+            for(int k=j+1;k<n;k++){
+               int sum = 0;
+               sum = nums[i]+nums[j]+nums[k];
+               if(sum == 0){
+                  List<Integer> list = new ArrayList<>();
+                  list.add(nums[i]);
+                  list.add(nums[j]);
+                  list.add(nums[k]);
+                  list.sort(null);
+                  ans.add(list);
+               }
+            }
+         }
+      }
+      return ans;
+   }
+   public Set<List<Integer>> threeSumM2(int nums[]){
+      int n = nums.length;
+     Set<List<Integer>> ans = new HashSet<>();
+
+     for(int i=0;i<n;i++){
+      Set<Integer> hashSet = new HashSet<>();
+      for(int j=i+1;j<n;j++){
+         List<Integer> list = new ArrayList<>();
+         int third = -(nums[i]+nums[j]);
+         if(hashSet.contains(third)){
+            list.add(nums[i]);
+            list.add(third);
+            list.add(nums[j]);
+            list.sort(null);
+            ans.add(list);
+         }
+         hashSet.add(nums[j]);
+      }
+     }
+     return ans;
+   }
+   public Set<List<Integer>> threeSumM3(int nums[]){
+      Arrays.sort(nums);
+      Set<List<Integer>> ans = new HashSet<>();
+      int n = nums.length;
+
+      for(int i = 0;i<n;i++){
+         if(i>0 && nums[i] == nums[i-1]){
+            continue;
+         }
+         int j = i+1;
+         int k = n-1;
+
+         while(j<k){
+            int sum = nums[i]+nums[j]+nums[k];
+            if(sum<0){
+               j++;
+            }
+            else if(sum>0){
+               k--;
+            }
+            else{
+               List<Integer> list = new ArrayList<>();
+               list.add(nums[i]);
+               list.add(nums[j]);
+               list.add(nums[k]);
+               ans.add(list);
+               k--;
+               j++;
+
+               while(j<k && nums[k]==nums[k+1])k--;
+               while(j<k && nums[j] == nums[j-1])j++;
+            }
+         }
+      }
+      return ans;
+   }
+
+   //4-Sum
+   public Set<List<Integer>> fourSumM1(int nums[],int target){
+      int n = nums.length;
+      Set<List<Integer>> ans = new HashSet<>();
+      for(int i=0;i<n;i++){
+         for(int j=i+1;j<n;j++){
+            for(int k=j+1;k<n;k++){
+               for(int l=k+1;l<n;l++){
+                  int sum = nums[i]+nums[j]+nums[k]+nums[l];
+                  if(sum == target){
+                     List<Integer> list = Arrays.asList(nums[i],nums[j],nums[k],nums[l]);
+                     list.sort(null);
+                     ans.add(list);
+                  }
+               }
+            }
+         }
+      }
+      return ans;
+   }
+
+   public Set<List<Integer>> fourSumM2(int nums[],int target){
+      Set<List<Integer>> ans = new HashSet<>();
+
+      int n = nums.length;
+      for(int i=0;i<n;i++){
+         for(int j=i+1;j<n;j++){
+            Set<Integer> track = new HashSet<>();
+            for(int k=j+1;k<n;k++){
+               int fourth = target-(nums[i]+nums[j]+nums[k]);
+               if(track.contains(fourth)){
+                  List<Integer> list = Arrays.asList(nums[i],nums[j],fourth,nums[k]);
+                  list.sort(null);
+                  ans.add(list);
+               }
+               track.add(nums[k]);
+            }
+         }
+      }
+      
+      return ans;
+
+   }
+   public List<List<Integer>> fourSumM3(int nums[],int target){
+      List<List<Integer>> ans = new ArrayList<>();
+      int n = nums.length;
+      Arrays.sort(nums);
+      for(int i=0;i<n;i++){
+         if(i>0 && nums[i] == nums[i-1]) continue;
+         for(int j=i+1;j<n;j++){
+
+            if(j>i+1 && nums[j] == nums[j-1]) continue;
+            int k = j+1;
+            int l = n-1;
+
+            while(k<l){
+               int sum = nums[i]+nums[j]+nums[k]+nums[l];
+               if(sum>target) l--;
+               else if(sum<target)k++;
+               else{
+                  List<Integer> list = Arrays.asList(nums[i],nums[j],nums[k],nums[l]);
+                  k++;
+                  l--;
+                  ans.add(list);
+                  while(k<l && nums[k] == nums[k-1])k++;
+                  while(k<l && nums[l] == nums[l+1])l--;
+               }
+            }
+         }
+      }
+      return ans;
+   }
 }
