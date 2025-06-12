@@ -144,6 +144,9 @@ public class Main{
       int nums23[] = {1,4,8,10};
       System.out.println("After merging two sorted arrays is : "+pobj.mergeTwoSortedArray(nums24,nums23));
 
-      
+      //Shell Sorting
+      int nums25[] = {3,19,0,2,1,6,7,22,11};
+      pobj.shellSorting(nums25);
+      mobj.printArray(nums25);
    }
 }
