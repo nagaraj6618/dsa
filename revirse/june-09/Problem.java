@@ -601,4 +601,26 @@ public class Problem {
       }
       return ans;
    }
+
+   //Count Subarray with sum 0;
+
+   public int countAllSubarray(int nums[]){
+      int n = nums.length;
+      int count = 0;
+      Map<Integer,Integer> mapSum = new HashMap<>();
+      mapSum.put(0,1);
+      int sum = 0;
+      for(int i=0;i<n;i++){
+         sum += nums[i];
+         if(mapSum.containsKey(sum-0)){
+            count += mapSum.get(sum-0);
+         }
+         if(mapSum.containsKey(sum)){
+            mapSum.put(sum,mapSum.get(sum)+1);
+         }else{
+            mapSum.put(sum,1);
+         }
+      }
+      return count;
+   }
 }

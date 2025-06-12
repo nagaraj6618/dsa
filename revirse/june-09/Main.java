@@ -128,5 +128,9 @@ public class Main{
       System.out.println("The four sum of all pair : "+pobj.fourSumM1(nums19,9));
       System.out.println("The four sum of all pair : "+pobj.fourSumM2(nums19,9));
       System.out.println("The four sum of all pair : "+pobj.fourSumM3(nums19,9));
+
+      //Count subArray Sum with 0;
+      int nums20[] = {9, -3, 3, -1, 6, -5};
+      System.out.println("The All subarray sum with zeor is : "+pobj.countAllSubarray(nums20));
    }
 }
