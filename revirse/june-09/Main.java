@@ -129,8 +129,21 @@ public class Main{
       System.out.println("The four sum of all pair : "+pobj.fourSumM2(nums19,9));
       System.out.println("The four sum of all pair : "+pobj.fourSumM3(nums19,9));
 
-      //Count subArray Sum with 0;
-      int nums20[] = {9, -3, 3, -1, 6, -5};
-      System.out.println("The All subarray sum with zeor is : "+pobj.countAllSubarray(nums20));
+      //Longest subarray sum 0
+      int nums20[] = {6,-2,2,-8,1,7,4,-10};
+      System.out.println("The subarray sum zero : "+pobj.longestSubarraySum0(nums20));
+
+      //Merge Overlapping subintervals 
+      int nums21[][] = {{1,3},{2,4},{8,9},{2,6},{8,10},{9,11},{15,18},{16,17}};
+      int[][] nums22 = {{1, 3}, {8, 10}, {2, 6}, {15, 18}};
+      System.out.println("The Merge Overlapping intervals are : "+pobj.mergeOverLapInterval(nums21));
+      System.out.println("The Merge Overlapping intervals are : "+pobj.mergeOverLapInterval(nums22));
+
+      //Merge two sorted arrays
+      int nums24[] = {2,3,9};
+      int nums23[] = {1,4,8,10};
+      System.out.println("After merging two sorted arrays is : "+pobj.mergeTwoSortedArray(nums24,nums23));
+
+      
    }
 }

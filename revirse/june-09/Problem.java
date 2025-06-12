@@ -601,26 +601,86 @@ public class Problem {
       }
       return ans;
    }
-
-   //Count Subarray with sum 0;
-
-   public int countAllSubarray(int nums[]){
+   //Longest Subarray sum k=0
+   public int longestSubarraySum0(int nums[]){
       int n = nums.length;
-      int count = 0;
-      Map<Integer,Integer> mapSum = new HashMap<>();
-      mapSum.put(0,1);
       int sum = 0;
+      int len = 0;
+      int maxLen = 0;
+      Map<Integer,Integer> mapSum = new HashMap<>();
       for(int i=0;i<n;i++){
          sum += nums[i];
-         if(mapSum.containsKey(sum-0)){
-            count += mapSum.get(sum-0);
+
+         if(sum == 0){
+            len = i+1;
          }
-         if(mapSum.containsKey(sum)){
-            mapSum.put(sum,mapSum.get(sum)+1);
-         }else{
-            mapSum.put(sum,1);
+         if(mapSum.containsKey(sum - 0)){
+            len = i - mapSum.get(sum-0);
+         }
+         if(!mapSum.containsKey(sum)){
+            mapSum.put(sum,i);
+         }
+         maxLen = Math.max(maxLen,len);
+      }
+      return maxLen;
+   }
+   
+   //Merge Overlapping subintervals
+   public List<List<Integer>> mergeOverLapInterval(int nums[][]){
+      int n = nums.length;
+      List<List<Integer>> ans = new ArrayList<>();
+      Arrays.sort(nums,(a,b) -> a[0]-b[0]);
+      int i=0,j=1;
+      while(i<n){
+         int max = nums[i][1];
+         List<Integer> list = new ArrayList<>();
+         while(j<n && max>nums[j][0]){
+            max = Math.max(max,nums[j][1]);
+            j++;
+         }
+         list.add(nums[i][0]);
+         list.add(max);
+         ans.add(list);
+         i=j;
+         j++;
+      }
+      return ans;
+   }
+
+   //Merge Two Sorted array
+   public List<Integer>mergeTwoSortedArray(int nums1[],int nums2[]){
+      int n = nums1.length;
+      int m = nums2.length;
+
+      List<Integer> list = new ArrayList<>();
+
+      int l = n-1;
+      int r = 0;
+      while(l>=0 && r<m){
+         if(nums1[l]<=nums2[r]){
+            break;
+         }
+         else{
+            swapTwoArrays(nums1,nums2,l,r);
+            r++;
+            l--;
          }
       }
-      return count;
+      Arrays.sort(nums1);
+      Arrays.sort(nums2);
+      for(int i=0;i<n;i++){
+         list.add(nums1[i]);
+      }
+      for(int i=n;i<n+m;i++){
+         list.add(nums2[i-n]);
+      }
+      return list;
+   }
+
+   //Swap two arrays
+   public void swapTwoArrays(int nums1[],int nums2[],int l,int r){
+      int temp = nums1[l];
+      nums1[l] = nums2[r];
+      nums2[r] = temp;
    }
 }
