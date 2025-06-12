@@ -139,6 +139,10 @@ public class Main{
       System.out.println("The Merge Overlapping intervals are : "+pobj.mergeOverLapInterval(nums21));
       System.out.println("The Merge Overlapping intervals are : "+pobj.mergeOverLapInterval(nums22));
 
+      //Merge two sorted arrays
+      int nums24[] = {2,3,9};
+      int nums23[] = {1,4,8,10};
+      System.out.println("After merging two sorted arrays is : "+pobj.mergeTwoSortedArray(nums24,nums23));
 
       
    }

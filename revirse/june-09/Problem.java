@@ -646,4 +646,41 @@ public class Problem {
       }
       return ans;
    }
+
+   //Merge Two Sorted array
+   public List<Integer>mergeTwoSortedArray(int nums1[],int nums2[]){
+      int n = nums1.length;
+      int m = nums2.length;
+
+      List<Integer> list = new ArrayList<>();
+
+      int l = n-1;
+      int r = 0;
+      while(l>=0 && r<m){
+         if(nums1[l]<=nums2[r]){
+            break;
+         }
+         else{
+            swapTwoArrays(nums1,nums2,l,r);
+            r++;
+            l--;
+         }
+      }
+      Arrays.sort(nums1);
+      Arrays.sort(nums2);
+      for(int i=0;i<n;i++){
+         list.add(nums1[i]);
+      }
+      for(int i=n;i<n+m;i++){
+         list.add(nums2[i-n]);
+      }
+      return list;
+   }
+
+   //Swap two arrays
+   public void swapTwoArrays(int nums1[],int nums2[],int l,int r){
+      int temp = nums1[l];
+      nums1[l] = nums2[r];
+      nums2[r] = temp;
+   }
 }
