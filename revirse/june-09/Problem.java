@@ -601,4 +601,49 @@ public class Problem {
       }
       return ans;
    }
+   //Longest Subarray sum k=0
+   public int longestSubarraySum0(int nums[]){
+      int n = nums.length;
+      int sum = 0;
+      int len = 0;
+      int maxLen = 0;
+      Map<Integer,Integer> mapSum = new HashMap<>();
+      for(int i=0;i<n;i++){
+         sum += nums[i];
+
+         if(sum == 0){
+            len = i+1;
+         }
+         if(mapSum.containsKey(sum - 0)){
+            len = i - mapSum.get(sum-0);
+         }
+         if(!mapSum.containsKey(sum)){
+            mapSum.put(sum,i);
+         }
+         maxLen = Math.max(maxLen,len);
+      }
+      return maxLen;
+   }
+   
+   //Merge Overlapping subintervals
+   public List<List<Integer>> mergeOverLapInterval(int nums[][]){
+      int n = nums.length;
+      List<List<Integer>> ans = new ArrayList<>();
+      Arrays.sort(nums,(a,b) -> a[0]-b[0]);
+      int i=0,j=1;
+      while(i<n){
+         int max = nums[i][1];
+         List<Integer> list = new ArrayList<>();
+         while(j<n && max>nums[j][0]){
+            max = Math.max(max,nums[j][1]);
+            j++;
+         }
+         list.add(nums[i][0]);
+         list.add(max);
+         ans.add(list);
+         i=j;
+         j++;
+      }
+      return ans;
+   }
 }
