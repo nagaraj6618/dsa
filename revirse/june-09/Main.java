@@ -142,7 +142,8 @@ public class Main{
       //Merge two sorted arrays
       int nums24[] = {2,3,9};
       int nums23[] = {1,4,8,10};
-      System.out.println("After merging two sorted arrays is : "+pobj.mergeTwoSortedArray(nums24,nums23));
+      // System.out.println("After merging two sorted arrays is : "+pobj.mergeTwoSortedArray(nums24,nums23));
+      System.out.println("After merging two sorted arrays is : "+pobj.mergeTwoSortedArrayUsingShellSort(nums23,nums24));
 
       //Shell Sorting
       int nums25[] = {3,19,0,2,1,6,7,22,11};

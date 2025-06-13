@@ -701,4 +701,53 @@ public class Problem {
          }
       }
    }
+
+   //Merge two sorted arrays;
+   //Using gap method(Shell sorting);
+
+   public List<Integer> mergeTwoSortedArrayUsingShellSort(int nums1[],int nums2[]){
+      int n = nums1.length;
+      int m = nums2.length;
+      int len = n+m;
+      int gap = len/2 +(len%2);
+      while(gap>0){
+
+         int left = 0;
+         int right = left+gap;
+
+         while(right<len){
+
+            if(left<n && right>=n){
+               swapIfGreater(nums1,nums2,left,right-n);
+            }
+            else if(left>=n){
+               swapIfGreater(nums2,nums2,left-n,right-n);
+            }else{
+               swapIfGreater(nums1,nums1,left,right);
+            }
+            left++; right++;
+            
+         }
+         if (gap == 1) break;
+         gap = (gap / 2) + (gap % 2);
+      }
+      
+      List<Integer> list = new ArrayList<>();
+      for(int aa : nums1){
+         list.add(aa);
+      }
+      for(int bb:nums2){
+         list.add(bb);
+      }
+      return list;
+
+   }
+   //SwapIfGreater
+   public void swapIfGreater(int nums1[],int nums2[],int a,int b){
+      if(nums1[a]>nums2[b]){
+         int temp = nums1[a];
+         nums1[a] = nums2[b];
+         nums2[b] = temp;
+      }
+   }
 }
