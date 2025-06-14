@@ -149,5 +149,17 @@ public class Main{
       int nums25[] = {3,19,0,2,1,6,7,22,11};
       pobj.shellSorting(nums25);
       mobj.printArray(nums25);
+
+      //Missing and Repeating elements in the given array;
+      int nums26[] = {1,3,2,3,5,4};
+      pobj.repeatingAndMissingElementUsingMaths(nums26);
+      pobj.repeatingAndMissingElementUsingXor(nums26);
+
+      //Count inversion pair;
+      int nums27[] = {5,4,3,2,1};
+      pobj.countInversion(nums27);
+      int nums28[] = {1,3,2,3,1};
+      pobj.countReversePair(nums28);
+      mobj.printArray(nums28);
    }
 }

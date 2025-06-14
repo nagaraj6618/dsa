@@ -750,4 +750,156 @@ public class Problem {
          nums2[b] = temp;
       }
    }
+
+   //Find the repeating element and missing element;
+   public void repeatingAndMissingElementUsingMaths(int nums[]){
+      int n = nums.length;
+      int sn = (n*(n+1))/2;
+      int sn2 = (n*(n+1)*((2*n)+1))/6;
+      int sum = 0;
+      int sum2 = 0;
+      for(int i=0;i<n;i++){
+         sum += nums[i];
+         sum2 += nums[i]*nums[i];
+      }
+      //x -> Repeating element , y -> Missing Element;
+      int value1 = sum - sn; //x-y
+      int value2 = sum2 - sn2; //x^2 - y^2;
+      value2 = value2/value1 ;// x+y;
+
+      int x = (value1+value2)/2;
+      int y = x - value1;
+      System.out.println("The Repeating element is : "+x);
+      System.out.println("The missing element is : "+y);
+   }
+
+   //Find repeated and missing elements using xor;
+
+   public void repeatingAndMissingElementUsingXor(int nums[]){
+      int n = nums.length;
+      int xor = 0;
+
+      for(int i=0;i<n;i++){
+         xor ^= nums[i];
+         xor ^= (i+1);
+      }
+      int bitNo = 0;
+      while(true){
+         if((xor & (1<<bitNo)) != 0 ){
+            break;
+         }
+         bitNo++;
+      }
+      int one  = 0;
+      int zero = 0;
+
+      for(int i=0;i<n;i++){
+         if((nums[i] & (1<<bitNo)) == 1){
+            one ^= nums[i];
+         }else{
+            zero ^= nums[i];
+         }
+         if(((i+1)&(1<<bitNo)) == 1){
+            one ^= (i+1);
+         }else{
+            zero ^= (i+1);
+         }
+      }
+      int miss = one;
+      int repeat = zero;
+      for(int i=0;i<n;i++){
+         if(one == nums[i]){
+            miss = zero;
+            repeat = one;
+            break;
+         }
+      }
+      System.out.println("The Missing element is : "+miss);
+      System.out.println("The Repeating element is :"+repeat);
+   }
+
+   //Count inversion pairs i<j but nums[i] > nums[j];
+   public void countInversion(int nums[]){
+      //using merge sort
+      int count = mergeSortForCountInversionPairs(nums,0,nums.length-1);
+      System.out.println("The count Inversion pair : "+ count);
+   }
+   //Count reverse pair
+   public void countReversePair(int nums[]){
+      int countReverse = mergeSortForCountReversePairs(nums,0,nums.length-1);
+      System.out.println("The count Reverse pair : "+ countReverse);
+   }
+   public int reversePairs(int nums[],int low,int mid,int high){
+      int cntReverse = 0;
+      int left = low;
+      int right = mid+1;
+      while(left<=mid && right<=high){
+         if(nums[left]> 2*nums[right]){
+            cntReverse +=(mid-left+1);
+         }
+         // if(nums[left]>nums[right]){
+            right++;
+         // }else{
+            left++;
+         // }
+      }
+      return cntReverse;
+   }
+   public int mergeSortForCountReversePairs(int nums[],int low,int high){
+      int cnt = 0;
+      if(low>= high) return cnt; 
+      
+      int mid = (low+high)/2;
+
+      cnt += mergeSortForCountInversionPairs(nums,low,mid);
+      cnt += mergeSortForCountInversionPairs(nums,mid+1,high);
+      cnt += reversePairs(nums,low,mid,high);
+      merge(nums,low,mid,high);
+      return cnt;
+
+
+   }
+   public int mergeSortForCountInversionPairs(int nums[],int low,int high){
+      int cnt = 0;
+      if(low>= high) return cnt; 
+      
+      int mid = (low+high)/2;
+
+      cnt += mergeSortForCountInversionPairs(nums,low,mid);
+      cnt += mergeSortForCountInversionPairs(nums,mid+1,high);
+      cnt += merge(nums,low,mid,high);
+      return cnt;
+
+
+   }
+   public int merge(int nums[],int low,int mid,int high){
+      int left = low;
+      int right = mid+1;
+      int cnt = 0;
+      List<Integer> temp = new ArrayList<>();
+      while(left<=mid && right<=high){
+         if(nums[left]>nums[right]){
+            cnt += (mid-left+1);
+            temp.add(nums[right]);
+            right++;
+         }else{
+            temp.add(nums[left]);
+            left++;
+         }
+      }
+      while(left<=mid){
+         temp.add(nums[left]);
+         left++;
+      }
+      while(right<=high){
+         temp.add(nums[right]);
+         right++;
+      }
+
+      for(int i=low;i<=high;i++){
+         nums[i] = temp.get(i-low);
+      }
+      return cnt;
+   }
+
 }
