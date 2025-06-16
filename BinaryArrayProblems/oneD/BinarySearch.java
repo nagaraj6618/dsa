@@ -118,4 +118,34 @@ public class BinarySearch {
       }
       return tot;
    }
+   
+   //Find out how many times the array has been rotated
+   public int countNoOfTimesRotated(int nums[]){
+      int n = nums.length;
+      int ans = nums[n-1];
+      int ansIndex = n-1;
+      int low = 0;
+      int high = n-1;
+
+      while(low<=high){
+         int mid = (low+high)/2;
+         
+         if(nums[mid]>=nums[low]){
+            if(nums[low]<ans){
+               ans = nums[low];
+               ansIndex = low;
+               
+            }
+            low = mid+1;
+         }else{
+            if(nums[mid]<ans){
+               ans = nums[mid];
+               ansIndex = mid;
+               
+            }
+            high = mid-1;
+         }
+      }
+      return ansIndex;
+   }
 }

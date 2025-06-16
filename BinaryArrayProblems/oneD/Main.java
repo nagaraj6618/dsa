@@ -19,5 +19,9 @@ public class Main{
       int nums5[] = {2, 2 , 3 , 3 , 3 , 3 , 4};
       System.out.println("The Total occurance : "+bobj.totalOccuranceOfNumber(nums5,4));
 
+      //Find out how many times the array has been rotated
+      int nums6[] = {4,5,6,7,0,1,2,3};
+      System.out.println("The count of rotation is : "+bobj.countNoOfTimesRotated(nums6));
+
    }
 }
