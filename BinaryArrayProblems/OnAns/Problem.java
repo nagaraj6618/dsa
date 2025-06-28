@@ -1,3 +1,4 @@
+import java.util.*;
 public class Problem{
 
    //Find the squart of the given number;
@@ -45,5 +46,57 @@ public class Problem{
          }
       }
       return ans;
+   }
+
+
+   //Aggresive Cows;
+
+   public int aggresiveCowsMinOfMaxDistance(int nums[],int cows){
+      int n = nums.length;
+      //Get The sorted array;
+      int maxValue = 0;
+      int maxLimit = nums[n-1] - nums[0];
+      // for(int i=1;i<=maxLimit;i++){
+
+      //    if(cowCanBePlace(nums,i,cows) == false){
+      //       maxValue = i-1;
+      //       break;
+      //    }
+      // }
+
+      int low = 1;
+      int high = maxLimit;
+      while(low<=high){
+         int mid = (low+high)/2;
+         if(cowCanBePlace(nums,mid,cows) == true){
+            maxValue = mid;
+            low = mid+1;
+         }else{
+            high = mid-1;
+         }
+      }
+
+      return maxValue;
+
+   }
+   public boolean cowCanBePlace(int []nums,int minDistance,int cows){
+      int cntCows = 1;
+      int n = nums.length;
+      int lastCord = nums[0];
+      
+
+      for(int i=1;i<n;i++){
+         int distance = nums[i] - lastCord;
+         if(distance>= minDistance){
+            cntCows++;
+            lastCord = nums[i];
+         }
+
+         
+      }
+      if(cntCows >= cows) {
+            return true;
+         }
+      return false;
    }
 }

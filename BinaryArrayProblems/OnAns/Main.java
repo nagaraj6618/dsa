@@ -10,6 +10,9 @@ public class Main{
       //Find the NthRoot of m;
       System.out.println("The Nth root of M is. : "+pobj.nthRootOfM(3,8));
 
-
+      //Aggresive Cows
+      int cowsCord [] = {0,3,4,7,9,10};
+      int cows = 4;
+      System.out.println( "The Min of max distance is : "+pobj.aggresiveCowsMinOfMaxDistance(cowsCord,cows));
    }
 }
